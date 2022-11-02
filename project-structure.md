@@ -7,36 +7,36 @@ They can view their cart to see what they picked, along with any customizations 
 The can check out, where it will display the total cost (without tax or delivery fee) and items selected.
 They can 'pay', and they will recieve a receipt with total cost + tax, delivery fee, and estimated arrival time. 
 
-#class item 
+# class item 
 {
-##private:
-###string name
+## private:
+### string name
 // Name of the item.
-###double cost
+### double cost
 // Price of the item.
-###map<string, double> modifications
+### map<string, double> modifications
 // Map of modifications made to the item and their respective price modifiers.
 
-##public:
-###item(name, base_price)
+## public:
+### item(name, base_price)
 // Assigns the item a name and base price.
-###void add_modification(string modification, price_modifier)
+### void add_modification(string modification, price_modifier)
 // Adds the modification to the modifications map along with it's price modifier.
-###void delete_modification(string modification)
+### void delete_modification(string modification)
 // Removes the modification from the modifications map.
-###double get_price()
+### double get_price()
 // returns the current value of the item.
 }
 
-#class menu 
+# class menu 
 {
-##private:
-###map<string, double> items
+## private:
+### map<string, double> items
 // Map of the items and their respective prices.
-##public:
-###void display_menu()
+## public:
+### void display_menu()
 // Displays the menu.
-###void
+### void
 
 
 
