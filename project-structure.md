@@ -7,7 +7,7 @@ They can view their cart to see what they picked, along with any customizations 
 The can check out, where it will display the total cost (without tax or delivery fee) and items selected.
 They can 'pay', and they will recieve a receipt with total cost + tax, delivery fee, and estimated arrival time. 
 
-# class item 
+# class Item 
 - private:
     - ***string*** *name*
       - Name of the item.
@@ -28,14 +28,16 @@ They can 'pay', and they will recieve a receipt with total cost + tax, delivery 
   - ***double*** **get_price**()
       - returns the current value of the item.
 
-# class menu 
+# class Menu 
 - private:
   - ***map<string, double>*** *items*
       - Map of the items and their respective prices.
+  - ***vector<Item>*** *
 - public:
   - ***void*** **display_menu**()
       - Displays the menu.
-  - ***void
+  - ***void*** **pick_item**()
+      - Prompts the user to pick an item and adds it to the map
 
 
 
