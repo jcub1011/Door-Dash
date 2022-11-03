@@ -21,23 +21,32 @@ They can 'pay', and they will recieve a receipt with total cost + tax, delivery 
       - Assigns the item a name and base price.
   - ***string*** **get_name**()
       - Retrives the name of the item.
+  - ***map<string, double>*** **get_modifications**()
+      - Returns the modifications map.
+  - ***double*** **get_price**()
+      - returns the current value of the item.
   - ***void*** **add_modification**(*string modification, price_modifier*)
       - Adds the modification to the modifications map along with it's price modifier.
   - ***void*** **delete_modification**(*string modification*)
       - Removes the modification from the modifications map.
-  - ***double*** **get_price**()
-      - returns the current value of the item.
 
 # class Menu 
 - private:
   - ***map<string, double>*** *items*
       - Map of the items and their respective prices.
-  - ***vector<Item>*** *
+  - ***vector<Item>*** *item_list*
 - public:
+  - **Menu**(*map<string, double>*)
+      - Assigns the items map.
   - ***void*** **display_menu**()
       - Displays the menu.
-  - ***void*** **pick_item**()
-      - Prompts the user to pick an item and adds it to the map
+  - ***void*** **pick_item**(*item_name*)
+      - Converts that item into the Item class, and adds it to item_list.
+  - ***void*** **delete_item**(*item_name*)
+      - Removes the item from the item list.
+      
+ # class Restaurant
+ Add members and methods here
 
 
 
