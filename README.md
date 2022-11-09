@@ -32,12 +32,10 @@ They can 'pay', and they will recieve a receipt with total cost + tax, delivery 
 
 # class Menu 
 - private:
-  - ***map<string, double>*** *items*
-      - Map of the items and their respective prices.
   - ***vector<Item>*** *item_list*
 - public:
   - **Menu**(*map<string, double>*)
-      - Assigns the items map.
+      - Creates a list of items and assigns that to the item_list.
   - ***void*** **display_menu**()
       - Displays the menu.
   - ***void*** **pick_item**(*item_name*)
@@ -45,11 +43,18 @@ They can 'pay', and they will recieve a receipt with total cost + tax, delivery 
   - ***void*** **delete_item**(*item_name*)
       - Removes the item from the item list.
       
- # class Restaurant
- Add members and methods here
+# class Restaurant : public menu
+- private:
+    - ***string*** *name*
+- public:
+    - **Restaurant** (*string name, map<string, double> item_map*)
+        - Assigns the restaurant name and creates the menu.
 
+# class OrderApp
+    - private:
+        - ***vector<Restaurant>*** *restaurant_list*
+        - const ***double*** DELIVERY_FEE
+        - ***double*** *delivery_time*
+    - public:
+        - 
 
-
-class Restaurant {
-vector<item> orders
-void print_receipt
