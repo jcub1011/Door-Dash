@@ -43,7 +43,7 @@ They can 'pay', and they will recieve a receipt with total cost + tax, delivery 
   - ***void*** **delete_item**(*item_name*)
       - Removes the item from the item list.
       
-# class Restaurant : public menu
+# class Restaurant : public Menu
 - private:
     - ***string*** *name*
 - public:
@@ -51,10 +51,12 @@ They can 'pay', and they will recieve a receipt with total cost + tax, delivery 
         - Assigns the restaurant name and creates the menu.
 
 # class OrderApp
-    - private:
-        - ***vector<Restaurant>*** *restaurant_list*
-        - const ***double*** DELIVERY_FEE
-        - ***double*** *delivery_time*
-    - public:
-        - 
+- private:
+    - ***vector<Restaurant>*** *restaurant_list*
+    - const ***double*** *DELIVERY_FEE*
+    - ***double*** *delivery_time*
+- public:
+    - **OrderApp**
+        - Assigns a random number to the delivery time and adds random restaurants to the restaurant list. (or just one)
+    - 
 
