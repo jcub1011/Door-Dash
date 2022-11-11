@@ -1,18 +1,22 @@
 //
-// Created by Luis Cabrera on 11/9/22.
+// Created by Jacob on 11/10/2022.
 //
 
-#ifndef SCHOOLPROJECT_ORDER_H
-#define SCHOOLPROJECT_ORDER_H
+#ifndef ORDERAPPLICATION_ORDER_H
+#define ORDERAPPLICATION_ORDER_H
 
+#include "Item.h"
+#include <vector>
 #include <string>
-
+#include <iostream>
 
 class Order {
+private:
+    std::vector<Item> item_list;
 public:
-    int id;
-
+    Order() {
+       // std::cout <<
+    }
 };
 
-
-#endif //SCHOOLPROJECT_ORDER_H
+#endif //ORDERAPPLICATION_ORDER_H
