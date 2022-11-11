@@ -21,7 +21,7 @@ Type get_input(const std::string& prompt) {
     return input;
 }
 
-void print(const std::string& output) {
+void Print(const std::string& output) {
     std::cout << output;
 }
 void print(unsigned long int output) {

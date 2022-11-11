@@ -15,23 +15,20 @@ class Restaurant : public Menu {
 private:
     std::string _name;
     std::string _address;
-    Menu* _menu;
 public:
     /**
      * Creates a restaurant.
      * @param name Name of the restaurant.
      * @param address Address of the restaurant.
-     * @param menu memory address for the menu.
      */
-    Restaurant(std::string name, std::string address, Menu* menu) {
+    Restaurant(std::string name, std::string address, const std::unordered_map<std::string, double>& items) {
         _name = std::move(name);
         _address = std::move(address);
-        _menu = menu;
-    }
 
-    void print_menu() {
-        for (auto element : *_menu) {
-
+        for (const auto& item : items) {
+            // Iterates through the map and adds the items to the menu list.
+            Item temp(item.first, item.second);
+            item_list.push_back(temp);
         }
     }
 };
