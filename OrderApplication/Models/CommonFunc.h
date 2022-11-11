@@ -24,16 +24,16 @@ Type get_input(const std::string& prompt) {
 void Print(const std::string& output) {
     std::cout << output;
 }
-void print(unsigned long int output) {
+void Print(unsigned long int output) {
     std::cout << output;
 }
-void print(long int output) {
+void Print(long int output) {
     std::cout << output;
 }
-void print(double output) {
+void Print(double output) {
     std::cout << output;
 }
-void print(char output) {
+void Print(char output) {
     std::cout << output;
 }
 
