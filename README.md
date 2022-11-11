@@ -49,6 +49,7 @@ They can 'pay', and they will recieve a receipt with total cost + tax, delivery 
 - public:
     - **Restaurant** (*string name, map<string, double> item_map*)
         - Assigns the restaurant name and creates the menu.
+    - ***string*** **get_name** (**)
 
 # class OrderApp
 - private:
