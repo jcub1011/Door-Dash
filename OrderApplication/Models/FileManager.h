@@ -11,34 +11,21 @@
 #include <fstream>
 #include <string>
 #include "json.hpp"
+#include "Restaurant.h"
 
 class FileReader {
 private:
-    std::string _contents;
+    nlohmann::json _contents;
 public:
     /**
-     * Opens the given file and stores the contents.
+     * Opens the given file and stores the contents as a json.
      * @param file_name The path of the file from the current folder.
      */
     explicit FileReader(const std::string& file_name) {
         std::ifstream file(file_name);
-
-        if (file.is_open()) {
-            std::string temp_line;
-            while (file.good()) {
-                std::getline(file, temp_line);
-                _contents += temp_line + "\n";
-            }
-        }
-
+        _contents = nlohmann::json::parse(file);
         file.close();
     }
+    // TODO: Have it create a list of restaurants to put in order app.
 
-    /**
-     * Gets the contents of the file.
-     * @return The contents of the file.
-     */
-    std::string get_contents() {
-        return _contents;
-    }
 };
