@@ -16,12 +16,10 @@ private:
     std::vector<Order> orders;
 public:
     OrderApp() {
-
+        //TODO: Create generator for orderapp.
     }
     void display_restaurants() {
-        for () {
-
-        }
+        //TODO: Implement method to print restaurants to the console.
     }
 };
 

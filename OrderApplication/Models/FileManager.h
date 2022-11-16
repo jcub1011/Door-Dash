@@ -26,6 +26,6 @@ public:
         _contents = nlohmann::json::parse(file);
         file.close();
     }
-    // TODO: Have it create a list of restaurants to put in order app.
+    // TODO: Have it create a list of restaurants that it then returns.
 
 };
