@@ -2,9 +2,9 @@
 #include <string>
 #include <vector>
 #include <unordered_map>
-#include "Models/Restaurant.h"
+#include "Models/OrderApp.h"
 
 int main() {
-    Restaurant test;
+    OrderApp test;
     return 0;
 }

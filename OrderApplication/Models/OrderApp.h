@@ -15,7 +15,9 @@ private:
     std::vector<Restaurant> restaurants;
     std::vector<Order> orders;
 public:
-    OrderApp();
+    OrderApp() {
+
+    }
     void display_restaurants() {
         for () {
 
