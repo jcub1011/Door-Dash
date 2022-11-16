@@ -12,11 +12,11 @@
 
 class OrderApp {
 private:
-    std::vector<Restaurant> restaurants;
-    std::vector<Order> orders;
+    std::vector<Restaurant> _restaurants;
+    std::vector<Order> _orders;
 public:
     OrderApp() {
-        //TODO: Create generator for orderapp.
+        //TODO: Create generator for order app.
     }
     void display_restaurants() {
         //TODO: Implement method to print restaurants to the console.
