@@ -6,7 +6,7 @@
 #include "Models/FileManager.h"
 
 int main() {
-    FileReader file("restaurants.json");
+    // FileReader file("restaurants.json");
     OrderApp test;
 
     return 0;

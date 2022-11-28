@@ -21,15 +21,12 @@ public:
      * @param name Name of the restaurant.
      * @param address Address of the restaurant.
      */
-    Restaurant(std::string name, std::string address, const std::unordered_map<std::string, double>& items) {
-        _name = std::move(name);
-        _address = std::move(address);
+    Restaurant(std::string& name, std::string& address, const std::vector<Item>& items) {
+        _name = name;
+        _address = address;
+        item_list = items;
 
-        for (const auto& item : items) {
-            // Iterates through the map and adds the items to the menu list.
-            Item temp(item.first, item.second);
-            item_list.push_back(temp);
-        }
+        //print_menu();
     }
     //TODO: Implement restaurant methods.
 };

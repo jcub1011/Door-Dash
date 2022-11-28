@@ -11,6 +11,7 @@
 #include "CommonFunc.h"
 #include "Item.h"
 #include <vector>
+#include <iomanip>
 
 class Menu {
 protected:
@@ -29,9 +30,11 @@ public:
     void print_menu() {
         Print("+-----Menu-----+");
         for (auto item : item_list) {
-            std::string temp = "|   " + item.get_name();
+            std::string temp = "\n| " + item.get_name()
+                    + " : $" + std::to_string(item.get_price());
             Print(temp);
         }
+        Print("\n");
     }
 };
 

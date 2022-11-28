@@ -9,6 +9,7 @@
 #include <string>
 #include "Order.h"
 #include "Restaurant.h"
+#include "Item.h"
 
 class OrderApp {
 private:
@@ -16,10 +17,46 @@ private:
     std::vector<Order> _orders;
 public:
     OrderApp() {
-        //TODO: Create generator for order app.
+        std::vector<std::string> names = {
+            "Restaurant 1",
+            "Restaurant 2",
+            "Restaurant 3"
+        };
+        std::vector<std::string> addresses = {
+            "address 1",
+            "address 2",
+            "address 3"
+        };
+        std::vector<std::vector<Item>> Items;
+        Items.push_back({
+            Item("Burger", 6.00),
+            Item("Fries", 2.00),
+            Item("Shake", 3.00),
+            Item("Soda", 2.50)
+        });
+        Items.push_back({
+            Item("Tomato Soup", 5.00),
+            Item("French Dip", 7.00),
+            Item("Apple Pie", 5.00),
+            Item("Chicken Fritters", 6.50)
+        });
+        Items.push_back({
+            Item("Baked Potato", 4.00),
+            Item("Chicken Pot Pie", 8.00),
+            Item("Blooming Onion", 5.00),
+            Item("Prime Rib", 16.00)
+        });
+
+        for (int i = 0; i < names.size(); i++) {
+            _restaurants.emplace_back(names[i], addresses[i], Items[i]);
+        }
     }
     void display_restaurants() {
         //TODO: Implement method to print restaurants to the console.
+    }
+
+    void start_order() {
+
     }
 };
 
