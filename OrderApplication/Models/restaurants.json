@@ -1,12 +1,12 @@
 {
-  "Barby's" : {
-    "Menu" : {
+  "Barby's": {
+    "Menu": {
       "Burger": 2.00,
       "Cheese": 0.50
     }
   },
-  "Donald's" : {
-    "Menu" : {
+  "Donald's": {
+    "Menu": {
       "Big Burger": 2.00,
       "Small Cheese": 0.50
     }

@@ -10,6 +10,7 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <vector>
 #include "json.hpp"
 #include "Restaurant.h"
 
@@ -25,6 +26,12 @@ public:
         std::ifstream file(file_name);
         _contents = nlohmann::json::parse(file);
         file.close();
+    }
+
+    std::vector<Restaurant> get_restaurant_list() {
+        for (auto rest : _contents.items()) {
+            std::cout << rest.key() << "\n";
+        }
     }
     // TODO: Have it create a list of restaurants that it then returns.
 
