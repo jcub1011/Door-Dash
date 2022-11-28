@@ -7,6 +7,9 @@ They can view their cart to see what they picked, along with any customizations 
 The can check out, where it will display the total cost (without tax or delivery fee) and items selected.
 They can 'pay', and they will recieve a receipt with total cost + tax, delivery fee, and estimated arrival time. 
 
+# wxWidgets Install
+- See this video for library setup -> https://youtu.be/ONYW3hBbk-8
+
 # class Item 
 - private:
     - ***string*** *name*
