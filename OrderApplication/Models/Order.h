@@ -17,7 +17,7 @@
 class Order {
 private:
     std::vector<Item> item_list;
-
+    Restaurant* _rest = nullptr;
     /**
      * Finds the index of the given name in the list. Returns -1 if not found.
      * @param restaurants List of restaurants.
@@ -37,6 +37,15 @@ private:
         }
         return -1;
     }
+
+    void getOrder() {
+        _rest->print_menu();
+
+        Print("Pick an item to add to your cart.\n");
+    }
+
+    void addItem();
+
 public:
     Order(std::vector<Restaurant>& restaurants) {
         auto name = new std::string;
@@ -53,11 +62,8 @@ public:
             *restaurant = get_input<std::string>("What restaurant would you like to order from?\n");
             response = nameInList(restaurants, *restaurant);
         }
-
-
-        for (auto place : restaurants) {
-
-        }
+        _rest = &restaurants[response];
+        getOrder();
     }
 };
 
