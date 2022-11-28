@@ -14,7 +14,7 @@
 class OrderApp {
 private:
     std::vector<Restaurant> _restaurants;
-    std::vector<Order> _orders;
+    std::vector<Order>* _orders = new std::vector<Order>;
 public:
     OrderApp() {
         std::vector<std::string> names = {
@@ -50,13 +50,15 @@ public:
         for (int i = 0; i < names.size(); i++) {
             _restaurants.emplace_back(names[i], addresses[i], Items[i]);
         }
+
+        start_order();
     }
     void display_restaurants() {
         //TODO: Implement method to print restaurants to the console.
     }
 
     void start_order() {
-
+        auto cur_order = new Order(_restaurants);
     }
 };
 

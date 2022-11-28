@@ -29,6 +29,12 @@ public:
         //print_menu();
     }
     //TODO: Implement restaurant methods.
+    std::string getName() {
+        return _name;
+    }
+    std::string getAddress() {
+        return _address;
+    }
 };
 
 
