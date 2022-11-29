@@ -14,18 +14,18 @@
 class OrderApp {
 private:
     std::vector<Restaurant> _restaurants;
-    std::vector<Order>* _orders = new std::vector<Order>;
+    std::vector<std::string>* _orders = new std::vector<std::string>;
 public:
     OrderApp() {
         std::vector<std::string> names = {
-            "Restaurant 1",
-            "Restaurant 2",
-            "Restaurant 3"
+            "Shake Shack",
+            "Bare Necessities",
+            "Specialty Kitchen"
         };
         std::vector<std::string> addresses = {
-            "address 1",
-            "address 2",
-            "address 3"
+            "Shake Dr.",
+            "West Ln.",
+            "First Right Rd."
         };
         std::vector<std::vector<Item>> Items;
         Items.push_back({
@@ -51,14 +51,16 @@ public:
             _restaurants.emplace_back(names[i], addresses[i], Items[i]);
         }
 
-        start_order();
-    }
-    void display_restaurants() {
-        //TODO: Implement method to print restaurants to the console.
+        start_new_order();
     }
 
-    void start_order() {
+    void start_new_order() {
         auto cur_order = new Order(_restaurants);
+        auto receipt = cur_order->getReceipt();
+        Print("Here's your receipt.\n");
+        Print(receipt);
+        Print("Thanks for using Order Application. We hope to see you again soon!\n");
+        _orders->push_back(receipt);
     }
 };
 

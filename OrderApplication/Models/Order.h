@@ -13,11 +13,13 @@
 #include "Order.h"
 #include "Restaurant.h"
 #include "Item.h"
+#include "Checkout.h"
 
 class Order {
 private:
     std::vector<Item> item_list;
     Restaurant* _rest = nullptr;
+    std::string _receipt;
     /**
      * Finds the index of the given name in the list. Returns -1 if not found.
      * @param restaurants List of restaurants.
@@ -48,8 +50,6 @@ private:
             Print(item_list[0].get_name() + "\n");
             response = get_bool("Would you like to select another item?\n");
         }
-        Print("Thank you! Taking you to your cart!\n");
-
     }
 
     /**
@@ -92,7 +92,7 @@ public:
 
         Print("Here's a list of available restaurants: \n");
         for (auto place : restaurants) {
-            Print(place.getName() + "\n");
+            Print(" - " + place.getName() + "\n");
         }
 
         int response = nameInList(restaurants, *restaurant);
@@ -104,6 +104,13 @@ public:
 
         _rest = &restaurants[response];
         getOrder();
+        Print("Thank you! Taking you to your cart!\n");
+        auto check = new Checkout(item_list, *restaurant);
+        _receipt = check->getReceipt();
+    }
+
+    std::string getReceipt() {
+        return _receipt;
     }
 };
 

@@ -3,4 +3,4 @@ project(OrderApplication)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(OrderApplication main.cpp Models/Item.h Models/Order.h Models/OrderApp.h Models/CommonFunc.h Models/FileManager.h Models/json.hpp)
+add_executable(OrderApplication main.cpp Models/Item.h Models/Order.h Models/OrderApp.h Models/CommonFunc.h Models/FileManager.h Models/json.hpp Models/Checkout.h)
