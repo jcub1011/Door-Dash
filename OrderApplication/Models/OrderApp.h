@@ -51,7 +51,23 @@ public:
             _restaurants.emplace_back(names[i], addresses[i], Items[i]);
         }
 
-        start_new_order();
+        int input = 0;
+        bool repeat = true;
+        while (repeat) {
+            input = get_from_list("Pick an option below:\n",
+                                  {"New Order", "View Past Orders", "Quit"});
+            switch (input) {
+                case 0:
+                    start_new_order();
+                    break;
+                case 1:
+                    print_past();
+                    break;
+                default:
+                    repeat = false;
+                    break;
+            }
+        }
     }
 
     void start_new_order() {
@@ -61,6 +77,13 @@ public:
         Print(receipt);
         Print("Thanks for using Order Application. We hope to see you again soon!\n");
         _orders->push_back(receipt);
+    }
+
+    void print_past() {
+        for (int i = 0; i < _orders->size(); i++) {
+            Print("\nOrder #" + std::to_string(i + 1) + "\n");
+            Print(_orders->at(i) + "\n");
+        }
     }
 };
 

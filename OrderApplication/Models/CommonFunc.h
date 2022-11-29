@@ -76,4 +76,22 @@ std::string ConvUpper(std::string input) {
     return input;
 }
 
+int get_from_list(const std::string& prompt, const std::vector<std::string>& list) {
+    Print(prompt);
+    for (const auto & i : list) {
+        Print(" - " + i + "\n");
+    }
+
+    std::string input;
+    input = ConvLower(get_input<std::string>(""));
+    while (true) {
+        for (int i = 0; i < list.size(); i++) {
+            if (input == ConvLower(list[i])) {
+                return i;
+            }
+        }
+        input = ConvLower(get_input<std::string>("Pick from the list.\n"));
+    }
+}
+
 #endif //ORDERAPPLICATION_COMMONFUNC_H
