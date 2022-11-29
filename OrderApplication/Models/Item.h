@@ -78,6 +78,11 @@ public:
         }
     }
 
+    /**
+     * Checks if a modification exists.
+     * @param mod Name of the modification to check for.
+     * @return Bool.
+     */
     bool check_mod_exists(const std::string& mod) {
         return _modifications.count(mod);
     }

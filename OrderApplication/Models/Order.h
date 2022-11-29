@@ -26,7 +26,7 @@ private:
      * @param name Name of the restaurant to find.
      * @return Index.
      */
-    int nameInList(std::vector<Restaurant>& restaurants, std::string name) {
+    static int nameInList(std::vector<Restaurant>& restaurants, std::string name) {
         //std::transform(name.begin(), name.end(), name.begin(), ::tolower);
         name = ConvLower(name);
         // Converts the string to lowercase.
@@ -86,7 +86,7 @@ private:
     }
 
 public:
-    Order(std::vector<Restaurant>& restaurants) {
+    explicit Order(std::vector<Restaurant>& restaurants) {
         auto name = new std::string;
         auto restaurant = new std::string;
 

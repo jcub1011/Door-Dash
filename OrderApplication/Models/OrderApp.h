@@ -51,7 +51,7 @@ public:
             _restaurants.emplace_back(names[i], addresses[i], Items[i]);
         }
 
-        int input = 0;
+        int input;
         bool repeat = true;
         while (repeat) {
             input = get_from_list("Pick an option below:\n",

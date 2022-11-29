@@ -15,7 +15,6 @@
 class Restaurant : public Menu {
 private:
     std::string _name;
-    std::string _address;
 public:
     /**
      * Creates a restaurant.
@@ -24,10 +23,7 @@ public:
      */
     Restaurant(std::string& name, std::string& address, const std::vector<Item>& items) {
         _name = name;
-        _address = address;
         item_list = items;
-
-        //print_menu();
     }
     /**
      * Gets the index of the item in the item list.
@@ -48,9 +44,6 @@ public:
     //TODO: Implement restaurant methods.
     std::string getName() {
         return _name;
-    }
-    std::string getAddress() {
-        return _address;
     }
 };
 
