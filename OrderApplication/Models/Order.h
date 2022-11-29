@@ -39,12 +39,25 @@ private:
     }
 
     void getOrder() {
-        auto response = new std::string;
+        bool response;
         _rest->print_menu();
-        addItem();
+
+        response = get_bool("Would you like to select an item from the menu?\n");
+        while (response) {
+            item_list.push_back(addItem());
+            Print(item_list[0].get_name() + "\n");
+            response = get_bool("Would you like to select another item?\n");
+        }
+        Print("Thank you! Taking you to your cart!\n");
+
     }
 
+    /**
+     * Gets an item the user selects from the menu with modifications.
+     * @return Item.
+     */
     Item addItem() {
+        // Inits
         Item* temp_item = new Item;
         int response = -1;
         auto input = new std::string;
@@ -53,9 +66,23 @@ private:
             *input = get_input<std::string>("Pick an item to add to your cart.\n");
             response = _rest->getItemIndex(*input);
         }
+
         *temp_item = _rest->getItem(response);
-        Print("Please enter your modifications (enter finished to stop):\n");
-        //temp_item->
+        Print("Please enter your modifications:\n");
+        Print("(enter 'finished' to stop or enter modification name again to delete)\n");
+
+        *input = ConvUpper(get_input<std::string>(""));
+        while (*input != "FINISHED") {
+            if (temp_item->check_mod_exists(*input)) {
+                Print(*input + " deleted.\n");
+                temp_item->delete_modification(*input);
+            } else {
+                Print(*input + " added.\n");
+                temp_item->add_modification(*input, 0.0);
+            }
+            *input = ConvUpper(get_input<std::string>(""));
+        }
+        return *temp_item;
     }
 
 public:

@@ -78,6 +78,10 @@ public:
         }
     }
 
+    bool check_mod_exists(const std::string& mod) {
+        return _modifications.count(mod);
+    }
+
 };
 
 
