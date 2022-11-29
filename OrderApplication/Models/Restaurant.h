@@ -10,6 +10,7 @@
 #include <vector>
 #include "Menu.h"
 #include "CommonFunc.h"
+#include "Item.h"
 
 class Restaurant : public Menu {
 private:
@@ -27,6 +28,22 @@ public:
         item_list = items;
 
         //print_menu();
+    }
+    /**
+     * Gets the index of the item in the item list.
+     * @param item The name of the item to find.
+     * @return Int, -1 if item doesn't exist.
+     */
+    int getItemIndex(std::string& item) {
+        for (int i = 0; i < item_list.size(); i++) {
+            if (ConvLower(item) == ConvLower(item_list[i].get_name())) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    Item getItem(int index) {
+        return item_list[index];
     }
     //TODO: Implement restaurant methods.
     std::string getName() {

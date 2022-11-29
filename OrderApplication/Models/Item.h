@@ -25,6 +25,7 @@ public:
         _name = std::move(name);
         _cost = base_price;
     }
+    Item() = default;
 
     /**
      * Gets the name of the item.

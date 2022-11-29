@@ -35,6 +35,7 @@ public:
             Print(temp);
         }
         Print("\n");
+        Print("+--------------+\n");
     }
 };
 
