@@ -15,13 +15,16 @@
 
 class Menu {
 protected:
-    std::vector<Item> item_list;
+    std::vector<Item> _item_list;
 public:
     explicit Menu() = default;
 
+    /**
+     * Prints the menu of the given restaurant.
+     */
     void print_menu() {
         Print("+-----Menu-----+");
-        for (auto item : item_list) {
+        for (auto item : _item_list) {
             std::string temp = "\n| " + item.get_name()
                     + " : $";
             Print(temp);

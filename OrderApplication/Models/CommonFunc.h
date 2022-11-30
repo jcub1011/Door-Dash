@@ -9,7 +9,7 @@
 #include <iostream>
 #include <iomanip>
 
-std::string ConvLower(std::string);
+std::string conv_lower(std::string input);
 void Print(const std::string&);
 void Print(long int);
 
@@ -39,7 +39,7 @@ bool get_bool(const std::string& prompt) {
             "no", "n", "f"
     };
     std::cout << prompt;
-    std::string input = ConvLower(get_input<std::string>(""));
+    std::string input = conv_lower(get_input<std::string>(""));
     while (true) {
         if (std::find(yes.begin(), yes.end(), input) != yes.end()) {
             // Checks if it's a yes value.
@@ -48,48 +48,69 @@ bool get_bool(const std::string& prompt) {
             // Checks if it's a no value.
             return false;
         }
-        input = ConvLower(get_input<std::string>("Accepts yes or no.\n"));
+        input = conv_lower(get_input<std::string>("Accepts yes or no.\n"));
     }
 }
 
-// For printings prompts
+/**
+ * A wrapper function that prints the prompts
+ * @param output the prompt that is output to the console
+ */
 void Print(const std::string& output) {
-    std::cout << std::fixed;
-    std::cout << std::setprecision(2);
     std::cout << output;
 }
 
-// For printing prices
+/**
+ * A wrapper function that prints the prices
+ * @param output the prompt that is output to the console
+ */
 void Print(long int output) {
     std::cout << std::fixed;
     std::cout << std::setprecision(2);
     std::cout << output;
 }
 
-std::string ConvLower(std::string input) {
+/**
+ * Converts string to all lower case
+ * @param input the string input
+ * @return a lower case version of the string
+ */
+std::string conv_lower(std::string input) {
     std::transform(input.begin(), input.end(), input.begin(), ::tolower);
     return input;
 }
-std::string ConvUpper(std::string input) {
+
+/**
+ * Converts string to all upper case
+ * @param input the string input
+ * @return a upper case version of the string
+ */
+std::string conv_upper(std::string input) {
     std::transform(input.begin(), input.end(), input.begin(), ::toupper);
     return input;
 }
 
-int get_from_list(const std::string& prompt, const std::vector<std::string>& list) {
+/**
+ * Used to prompt user that a selection is to be made
+ * @param prompt the prompt the user receives
+ * @param list the list the user chooses from
+ * @return the prompt the user interacts with
+ */
+int get_option_from_list(const std::string& prompt, const std::vector<std::string>& list) {
     Print(prompt);
     for (const auto & i : list) {
         Print(" - " + i + "\n");
     }
 
     std::string input;
-    input = ConvLower(get_input<std::string>(""));
+    input = conv_lower(get_input<std::string>(""));
     while (true) {
         for (int i = 0; i < list.size(); i++) {
-            if (input == ConvLower(list[i])) {
+            if (input == conv_lower(list[i])) {
                 return i;
             }
         }
-        input = ConvLower(get_input<std::string>("Pick from the list.\n"));
+        input = conv_lower(get_input<std::string>("Pick from the list.\n"));
     }
 }
 
