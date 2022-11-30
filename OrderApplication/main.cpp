@@ -1,7 +1,7 @@
 #include "Models/OrderApp.h"
 
 int main() {
-    OrderApp test;
+    OrderApp app;
 
     return 0;
 }
