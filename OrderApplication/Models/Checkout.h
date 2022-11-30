@@ -8,10 +8,14 @@
 #include <vector>
 #include <string>
 #include <iostream>
+#include <algorithm>
 #include "CommonFunc.h"
 #include "Order.h"
 #include "Restaurant.h"
 #include "Item.h"
+
+#define TAX 0.065
+#define DELIVERY_FEE 5.0
 
 class Checkout {
 private:
@@ -43,19 +47,13 @@ public:
         *receipt += "Restaurant: " + *rest_name + "\n";
         for (int i = 0; i < items->size(); i++) {
             *receipt += std::to_string(i + 1) + ". " + items->at(i).get_name();
-            //Print(std::to_string(i) + ". " + items->at(i).get_name());
             // Print name
             *receipt += " - $" + std::to_string(items->at(i).get_price()) + "\n";
-            // Print(" - $" + std::to_string(items->at(i).get_price()) + "\n");
             // Print price.
             if (!items->at(i).get_modifications().empty()) {
-                // Print modifications.
                 *receipt += "Modifications: \n";
-                // Print("Modifications: \n");
                 for (const auto& mod : items->at(i).get_modifications()) {
                     *receipt += " - " + mod.first + "\n";
-                    // *receipt += " - " + mod.first + " - $" + std::to_string(mod.second) + "\n";
-                    // Print(" - " + mod.first + " - $" + std::to_string(mod.second) + "\n");
                 }
             }
         }
@@ -72,9 +70,9 @@ public:
 
         temp += *receipt;
         temp += "Total: $" + std::to_string(price) + "\n";
-        temp += "Tax: $" + std::to_string(price * 0.065) + "\n";
-        temp += "Delivery Fee: $" + std::to_string(5.0) + "\n";
-        temp += "Total Paid: $" + std::to_string(price * 1.065 + 5.0) + "\n";
+        temp += "Tax: $" + std::to_string(price * TAX) + "\n";
+        temp += "Delivery Fee: $" + std::to_string(DELIVERY_FEE) + "\n";
+        temp += "Total Paid: $" + std::to_string(price * (1 + TAX) + DELIVERY_FEE) + "\n";
         temp += "+-----------------+\n";
         return temp;
     }

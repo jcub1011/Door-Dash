@@ -17,25 +17,15 @@ class Menu {
 protected:
     std::vector<Item> item_list;
 public:
-    /*
-    explicit Menu(const std::unordered_map<std::string, double>& items) {
-        for (const auto& item : items) {
-            // Iterates through the map and adds the items to the menu list.
-            Item temp(item.first, item.second);
-            item_list.push_back(temp);
-        }
-    }*/
     explicit Menu() = default;
 
-    /**
-     * Prints the menu to the console.
-     */
     void print_menu() {
         Print("+-----Menu-----+");
         for (auto item : item_list) {
             std::string temp = "\n| " + item.get_name()
-                    + " : $" + std::to_string(item.get_price());
+                    + " : $";
             Print(temp);
+            std::cout << item.get_price();
         }
         Print("\n");
         Print("+--------------+\n");

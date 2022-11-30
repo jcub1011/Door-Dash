@@ -8,7 +8,6 @@
 #include <vector>
 #include <string>
 #include <iostream>
-// #include <bits/stdc++.h>
 #include <algorithm>
 #include "CommonFunc.h"
 #include "Order.h"
@@ -28,7 +27,6 @@ private:
      * @return Index.
      */
     static int nameInList(std::vector<Restaurant>& restaurants, std::string name) {
-        //std::transform(name.begin(), name.end(), name.begin(), ::tolower);
         name = ConvLower(name);
         // Converts the string to lowercase.
         for (int i = 0; i < restaurants.size(); i++) {
@@ -41,9 +39,6 @@ private:
         return -1;
     }
 
-    /**
-     * Starts the process of getting another order.
-     */
     void getOrder() {
         bool response;
         _rest->print_menu();
@@ -90,10 +85,6 @@ private:
     }
 
 public:
-    /**
-     * Creates a new order.
-     * @param restaurants The list of restaurants the user can pick from.
-     */
     explicit Order(std::vector<Restaurant>& restaurants) {
         auto name = new std::string;
         auto restaurant = new std::string;
