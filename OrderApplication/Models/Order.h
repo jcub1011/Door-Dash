@@ -41,6 +41,9 @@ private:
         return -1;
     }
 
+    /**
+     * Starts the process of getting another order.
+     */
     void getOrder() {
         bool response;
         _rest->print_menu();
@@ -87,6 +90,10 @@ private:
     }
 
 public:
+    /**
+     * Creates a new order.
+     * @param restaurants The list of restaurants the user can pick from.
+     */
     explicit Order(std::vector<Restaurant>& restaurants) {
         auto name = new std::string;
         auto restaurant = new std::string;

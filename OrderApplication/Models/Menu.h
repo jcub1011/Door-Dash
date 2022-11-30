@@ -27,6 +27,9 @@ public:
     }*/
     explicit Menu() = default;
 
+    /**
+     * Prints the menu to the console.
+     */
     void print_menu() {
         Print("+-----Menu-----+");
         for (auto item : item_list) {

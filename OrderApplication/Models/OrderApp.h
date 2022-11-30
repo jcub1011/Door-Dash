@@ -70,6 +70,9 @@ public:
         }
     }
 
+    /**
+     * Starts a new order.
+     */
     void start_new_order() {
         auto cur_order = new Order(_restaurants);
         auto receipt = cur_order->getReceipt();
@@ -79,6 +82,9 @@ public:
         _orders->push_back(receipt);
     }
 
+    /**
+     * Prints old orders.
+     */
     void print_past() {
         for (int i = 0; i < _orders->size(); i++) {
             Print("\nOrder #" + std::to_string(i + 1) + "\n");

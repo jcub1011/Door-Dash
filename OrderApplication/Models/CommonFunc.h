@@ -34,9 +34,11 @@ bool get_bool(const std::string& prompt) {
     std::vector<std::string> yes = {
             "yes", "y", "t"
     };
+    // What inputs are considered yes.
     std::vector<std::string> no = {
             "no", "n", "f"
     };
+    // What inputs are considered no.
     std::cout << prompt;
     std::string input = ConvLower(get_input<std::string>(""));
     while (true) {
@@ -67,15 +69,30 @@ void Print(char output) {
     std::cout << output;
 }*/
 
+/**
+ * Converts a string to the lower case version.
+ * @param input String
+ * @return string.
+ */
 std::string ConvLower(std::string input) {
     std::transform(input.begin(), input.end(), input.begin(), ::tolower);
     return input;
 }
+/**
+ * Converts a string to the upper case version.
+ * @param input String.
+ * @return string.
+ */
 std::string ConvUpper(std::string input) {
     std::transform(input.begin(), input.end(), input.begin(), ::toupper);
     return input;
 }
-
+/**
+ * Allows the user to select an item from a list.
+ * @param prompt What to ask the user.
+ * @param list List of items to pick from.
+ * @return Index of that item.
+ */
 int get_from_list(const std::string& prompt, const std::vector<std::string>& list) {
     Print(prompt);
     for (const auto & i : list) {
